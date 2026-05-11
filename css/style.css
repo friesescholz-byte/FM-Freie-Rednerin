@@ -1588,3 +1588,28 @@ body.theme-trauer .split-image.reveal::after, body.theme-trauer .contact-image-w
 body.theme-trauer .bg-alt .split-image.reveal::after, body.theme-trauer .bg-alt .contact-image-wrapper.reveal::after {
     background-color: var(--bg-alt);
 }
+
+
+/* --- Fix for Contact Image Hover Overflow --- */
+.contact-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    display: inline-block; /* ensures the wrapper tightly hugs the image */
+    max-width: 300px; /* same as small-image */
+}
+.contact-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: center center;
+}
+.contact-image-wrapper:hover img {
+    transform: scale(1.05) !important;
+}
+@media (max-width: 768px) {
+    .contact-image-wrapper {
+        max-width: 100%;
+    }
+}
