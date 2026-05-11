@@ -182,12 +182,12 @@ img {
 }
 
 .logo img {
-    height: 60px;
+    height: 90px;
     transition: var(--transition-smooth);
 }
 
 .header.scrolled .logo img {
-    height: 50px;
+    height: 70px;
 }
 
 .nav-links {
@@ -211,7 +211,7 @@ img {
 }
 
 .header:not(.scrolled) .logo img {
-    filter: invert(1) brightness(200%);
+    filter: brightness(0) invert(1);
 }
 
 .nav-links a:hover:not(.btn-primary) {
