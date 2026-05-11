@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finnja Marie - Freie Rednerin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; overflow: hidden; background: #222; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            overflow: hidden; 
+            background: #111; 
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
         
         .split-screen {
             display: flex;
             height: 100vh;
             width: 100vw;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
         }
 
         .split-pane {
@@ -22,66 +31,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: flex 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none;
             color: white;
-        }
-
-        .split-pane:hover {
-            flex: 1.3;
+            cursor: pointer;
         }
 
         .split-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: -5%; left: -5%; width: 110%; height: 110%;
             background-size: cover;
             background-position: center;
-            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease;
             z-index: 1;
-        }
-
-        .split-pane:hover .split-bg {
-            transform: scale(1.05);
         }
 
         .split-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 2;
-            transition: background-color 0.8s ease;
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .pane-wedding .split-overlay {
-            background-color: rgba(253, 251, 247, 0.6);
-        }
-        .pane-wedding:hover .split-overlay {
-            background-color: rgba(253, 251, 247, 0.4);
-        }
-
-        .pane-funeral .split-overlay {
-            background-color: rgba(34, 34, 34, 0.7);
-        }
-        .pane-funeral:hover .split-overlay {
-            background-color: rgba(34, 34, 34, 0.5);
-        }
+        .pane-wedding .split-overlay { background: linear-gradient(to bottom, rgba(253, 251, 247, 0.5), rgba(253, 251, 247, 0.8)); }
+        .pane-funeral .split-overlay { background: linear-gradient(to bottom, rgba(34, 34, 34, 0.4), rgba(15, 15, 15, 0.85)); }
 
         .content {
             position: relative;
             z-index: 3;
             text-align: center;
             padding: 2rem;
-            transition: transform 0.8s ease;
-        }
-
-        .split-pane:hover .content {
-            transform: translateY(-10px);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.8rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            letter-spacing: -0.5px;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .pane-wedding h2 { color: #4A3B32; }
@@ -89,12 +81,91 @@
 
         p {
             font-size: 1.1rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.8s ease;
         }
 
         .pane-wedding p { color: #7A6960; }
-        .pane-funeral p { color: #A8A8A8; }
+        .pane-funeral p { color: #CCCCCC; }
+
+        .explore-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pane-wedding .explore-btn {
+            border: 1px solid #4A3B32;
+            color: #4A3B32;
+        }
+
+        .pane-funeral .explore-btn {
+            border: 1px solid rgba(255,255,255,0.5);
+            color: #FFFFFF;
+        }
+
+        /* --- Hover Effects --- */
+        
+        .split-screen:hover .split-pane {
+            /* Shrink slightly when the other is hovered */
+            flex: 0.85;
+        }
+        
+        .split-screen:hover .split-pane:not(:hover) .split-bg {
+            filter: grayscale(40%) blur(2px);
+            transform: scale(1);
+        }
+        
+        .split-screen:hover .split-pane:not(:hover) .split-overlay {
+            opacity: 0.9;
+        }
+        
+        .split-screen:hover .split-pane:not(:hover) .content {
+            opacity: 0.4;
+            transform: translateY(0);
+        }
+
+        .split-screen:hover .split-pane:hover {
+            flex: 1.3;
+        }
+
+        .split-pane:hover .split-bg {
+            transform: scale(1.05);
+            filter: grayscale(0%) blur(0px);
+        }
+
+        .pane-wedding:hover .split-overlay { background: linear-gradient(to bottom, rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.6)); }
+        .pane-funeral:hover .split-overlay { background: linear-gradient(to bottom, rgba(34, 34, 34, 0.1), rgba(15, 15, 15, 0.7)); }
+
+        .split-pane:hover .content {
+            transform: translateY(-10px);
+            opacity: 1;
+        }
+
+        .split-pane:hover .explore-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pane-wedding:hover .explore-btn {
+            background-color: #4A3B32;
+            color: #fff;
+        }
+        
+        .pane-funeral:hover .explore-btn {
+            background-color: #fff;
+            color: #111;
+        }
 
         /* Logo overlay */
         .logo-center {
@@ -105,17 +176,37 @@
             z-index: 10;
             width: 120px;
             filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1));
+            animation: fadeInDown 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: none; /* So it doesn't interrupt split hover */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translate(-50%, -20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
         }
 
         @media (max-width: 768px) {
             .split-screen { flex-direction: column; }
             body { overflow: auto; }
-            .split-pane:hover { flex: 1; }
-            h2 { font-size: 2.5rem; }
-            .logo-center { filter: brightness(0) invert(1); width: 80px; }
+            .split-screen:hover .split-pane { flex: 1; }
+            .split-screen:hover .split-pane:hover { flex: 1.1; }
+            h2 { font-size: 2.8rem; }
+            .logo-center { filter: brightness(0) invert(1); width: 90px; }
+            .explore-btn { opacity: 1; transform: translateY(0); margin-top: 1rem; }
+            .pane-funeral .explore-btn { background: rgba(255,255,255,0.1); }
+            .pane-wedding .explore-btn { background: rgba(74, 59, 50, 0.05); }
         }
     </style>
-    <link rel="icon" type="image/png" href="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png">
 </head>
 <body>
     <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png" alt="Finnja Marie Logo" class="logo-center">
@@ -127,6 +218,7 @@
             <div class="content">
                 <h2>Freie Trauungen</h2>
                 <p>Eure Geschichte. Euer Moment.</p>
+                <div class="explore-btn">Entdecken</div>
             </div>
         </a>
         
@@ -136,14 +228,9 @@
             <div class="content">
                 <h2>Trauerreden</h2>
                 <p>Worte, die bleiben.</p>
+                <div class="explore-btn">Entdecken</div>
             </div>
         </a>
     </div>
-
-    <div style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100; display: flex; gap: 30px; background: rgba(0,0,0,0.4); padding: 8px 20px; border-radius: 50px; backdrop-filter: blur(5px);">
-        <a href="impressum.html" style="color: #ffffff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">Impressum</a>
-        <a href="datenschutz.html" style="color: #ffffff; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;">Datenschutz</a>
-    </div>
 </body>
-
 </html>
