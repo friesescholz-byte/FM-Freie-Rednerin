@@ -117,10 +117,20 @@ img {
 .rounded-image {
     border-radius: var(--border-radius);
     overflow: hidden;
+    position: relative;
+}
+
+.rounded-image img {
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.rounded-image:hover img {
+    transform: scale(1.04);
 }
 
 .shadow-light {
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
 }
 
 /* Buttons */
@@ -141,8 +151,8 @@ img {
 
 .btn-primary:hover {
     background-color: var(--accent-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(212, 163, 115, 0.4);
     color: var(--white);
 }
 
@@ -214,8 +224,38 @@ img {
     filter: brightness(0) invert(1);
 }
 
+.nav-links a:not(.btn-primary) {
+    position: relative;
+}
+
+.nav-links a:not(.btn-primary)::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.nav-links a:hover:not(.btn-primary)::after {
+    width: 100%;
+    opacity: 1;
+}
+
+.header:not(.scrolled) .nav-links a:not(.btn-primary)::after {
+    background-color: var(--white);
+}
+
 .nav-links a:hover:not(.btn-primary) {
     color: var(--accent);
+}
+
+.header:not(.scrolled) .nav-links a:hover:not(.btn-primary) {
+    color: var(--white);
 }
 
 .mobile-menu-btn {
@@ -635,9 +675,21 @@ img {
     max-width: 600px;
 }
 
+.split-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
 .split-image img {
     width: 100%;
     object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.split-image:hover img {
+    transform: scale(1.04);
 }
 
 .portrait {
@@ -660,15 +712,16 @@ img {
     background-color: var(--white);
     padding: 2.5rem 2rem;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.02);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
 .card::before {
@@ -681,7 +734,7 @@ img {
     background-color: var(--accent);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .card:hover::before {
@@ -699,6 +752,13 @@ img {
     top: 1rem;
     right: 1.5rem;
     opacity: 0.5;
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.card:hover .card-icon {
+    color: var(--accent);
+    opacity: 0.2;
+    transform: scale(1.1);
 }
 
 .card h3 {
@@ -875,10 +935,28 @@ img {
     border-radius: 50%;
     background-color: var(--accent);
     box-shadow: 0 0 0 5px var(--bg-main);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .bg-alt .timeline-dot {
     box-shadow: 0 0 0 5px var(--bg-alt);
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 5px var(--bg-main), 0 0 15px rgba(212, 163, 115, 0.6);
+}
+
+.bg-alt .timeline-item:hover .timeline-dot {
+    box-shadow: 0 0 0 5px var(--bg-alt), 0 0 15px rgba(212, 163, 115, 0.6);
+}
+
+.timeline-content {
+    transition: transform 0.4s ease;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateX(8px);
 }
 
 .timeline-content h3 {
@@ -894,10 +972,17 @@ img {
 .pricing-card {
     background-color: var(--white);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     overflow: hidden;
     width: 100%;
     max-width: 500px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
 .pricing-header {
@@ -1006,11 +1091,12 @@ img {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease, padding-left 0.4s ease;
 }
 
 .faq-question:hover {
-    background-color: #fdfdfd;
+    background-color: #faf9f8;
+    padding-left: 2rem;
 }
 
 .faq-question h3 {
@@ -1022,12 +1108,23 @@ img {
 .faq-icon {
     font-size: 1.5rem;
     color: var(--accent);
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease;
     font-weight: 300;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.faq-question:hover .faq-icon {
+    background-color: rgba(212, 163, 115, 0.1);
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg);
+    transform: rotate(135deg); /* Rotates plus into a cross */
+    background-color: rgba(212, 163, 115, 0.15);
 }
 
 .faq-answer {
@@ -1089,14 +1186,14 @@ textarea {
     font-family: var(--font-body);
     font-size: 1rem;
     color: var(--text-main);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease;
 }
 
 input:focus,
 textarea:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.1);
+    box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15);
     background-color: var(--white);
 }
 
