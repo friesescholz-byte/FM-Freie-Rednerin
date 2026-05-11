@@ -1645,3 +1645,8 @@ body.theme-trauer .timeline-dot {
     70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(156, 174, 160, 0); }
     100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(156, 174, 160, 0); }
 }
+
+
+body.theme-trauer .section-tag::after {
+    background: linear-gradient(90deg, transparent, rgba(156, 174, 160, 0.4), transparent);
+}
