@@ -248,10 +248,50 @@ img {
     display: flex;
     align-items: center;
     background-color: var(--bg-main);
-    padding-top: 100px;
+    padding-top: 60px; /* Reduced since top strip takes space */
     padding-bottom: 80px;
     position: relative;
     overflow: hidden;
+}
+
+/* Top Hero Strip (Parallax) */
+.top-hero-strip {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    min-height: 350px;
+    z-index: 1;
+}
+
+.top-hero-strip-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 25%; /* Adjust to see the face well */
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.custom-shape-divider-bottom-strip {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 5;
+}
+
+.custom-shape-divider-bottom-strip svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+}
+
+.custom-shape-divider-bottom-strip .shape-fill {
+    fill: var(--bg-main);
 }
 
 .editorial-container {
@@ -291,77 +331,45 @@ img {
     align-items: center;
 }
 
-/* Image Composition Right Side */
-.editorial-composition-wrapper {
+/* Shaped Slider Right Side */
+.editorial-slider-wrapper {
     position: relative;
     width: 100%;
     height: 75vh;
     max-height: 750px;
-    min-height: 550px;
+    min-height: 500px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
-.editorial-main-image {
+.editorial-slider {
     position: relative;
-    width: 80%;
-    height: 90%;
-    border-radius: 250px; /* Big Pill */
+    width: 90%;
+    height: 100%;
+    border-radius: 200px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
     z-index: 2;
 }
 
-.editorial-main-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-}
-
-.image-outline {
+.slider-outline {
     position: absolute;
     top: -15px;
     bottom: -15px;
-    left: 15px;
-    right: -15px;
+    left: 10px;
+    right: 10px;
     border: 1px solid rgba(212, 163, 115, 0.4);
-    border-radius: 265px;
-    z-index: -1;
-}
-
-.editorial-secondary-slider {
-    position: absolute;
-    bottom: 50px;
-    left: -20px;
-    width: 45%;
-    height: 50%;
-    z-index: 3;
-    border-radius: 150px; /* Small Pill */
-    overflow: hidden;
-    box-shadow: -10px 20px 40px rgba(0,0,0,0.15);
-    border: 8px solid var(--bg-main);
-}
-
-.editorial-secondary-slider .editorial-slider {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.floating-badge-editorial {
-    position: absolute;
-    top: 50px;
-    left: -40px;
-    z-index: 10;
-    width: 140px;
-    height: 140px;
-    animation: float 6s ease-in-out infinite;
+    border-radius: 215px;
+    z-index: 1;
 }
 
 @media (max-width: 992px) {
+    .top-hero-strip {
+        height: 35vh;
+    }
     .premium-hero-editorial {
-        padding-top: 120px;
+        padding-top: 60px;
     }
     .editorial-container {
         grid-template-columns: 1fr;
@@ -379,29 +387,14 @@ img {
     .hero-buttons-editorial {
         justify-content: center;
     }
-    .editorial-composition-wrapper {
+    .editorial-slider-wrapper {
         height: 60vh;
-        justify-content: center;
-        margin-bottom: 2rem;
     }
-    .editorial-main-image {
-        width: 90%;
-        height: 100%;
-        border-radius: 150px;
+    .editorial-slider {
+        border-radius: 100px;
     }
-    .image-outline {
-        border-radius: 165px;
-    }
-    .editorial-secondary-slider {
-        width: 50%;
-        height: 40%;
-        left: -10px;
-        bottom: 20px;
-    }
-    .floating-badge-editorial {
-        left: -10px;
-        top: -20px;
-        transform: scale(0.8);
+    .slider-outline {
+        border-radius: 115px;
     }
 }
 
