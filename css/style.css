@@ -245,34 +245,56 @@ img {
 
 .premium-hero {
     position: relative;
-    height: 100vh;
-    min-height: 750px;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding-bottom: 60px;
-    padding-top: 100px;
-    overflow: hidden;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 140px;
     background-color: var(--bg-main);
 }
 
-.premium-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(to bottom, rgba(253, 251, 247, 0.95) 0%, rgba(253, 251, 247, 0) 100%);
-    z-index: 5;
-    pointer-events: none;
+/* Top Text Area */
+.hero-top-text {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 2rem;
+}
+
+.hero-title-wide {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-title-wide span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.hero-subtitle-centered {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.hero-buttons-overlap {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 20;
+    transform: translateY(4.5rem);
+    margin-bottom: -1rem;
 }
 
 /* Mesh Gradient Background */
 .mesh-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 50vh;
     overflow: hidden;
 }
 
@@ -392,26 +414,25 @@ img {
     pointer-events: none;
 }
 
-/* Hero Content */
-.hero-content-premium {
-    position: relative;
-    z-index: 10;
-    max-width: 1200px;
+.animated-gradient-text {
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--accent) 30%, var(--accent-dark) 70%, var(--text-main) 100%);
+    background-size: 300% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientText 8s linear infinite;
+    margin-bottom: 0.5rem;
 }
 
-.hero-text-wrapper {
-    max-width: 480px;
-    margin-left: 0;
+.solid-text {
+    color: var(--text-main);
+    font-weight: 700;
 }
 
-.hero-glass-blob {
-    background: rgba(253, 251, 247, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+.italic-text {
+    color: var(--text-light);
+    font-weight: 400;
+    font-style: italic;
 }
 
 .glass-tag {
@@ -426,7 +447,6 @@ img {
     color: var(--text-main);
     font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
@@ -447,24 +467,6 @@ img {
     0% { left: -100%; }
     20% { left: 200%; }
     100% { left: 200%; }
-}
-
-.hero-title {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    letter-spacing: -1px;
-}
-
-.animated-gradient-text {
-    background: linear-gradient(135deg, var(--text-main) 0%, var(--accent) 30%, var(--accent-dark) 70%, var(--text-main) 100%);
-    background-size: 300% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: gradientText 8s linear infinite;
-    display: block;
-    margin-bottom: 0.5rem;
 }
 
 @keyframes gradientText {
