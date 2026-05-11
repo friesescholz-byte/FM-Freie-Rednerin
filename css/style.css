@@ -340,6 +340,7 @@ img {
     inset: 0;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     opacity: 0;
     animation: fadeSlide 24s infinite;
 }
@@ -351,8 +352,8 @@ img {
 
 @keyframes fadeSlide {
     0%   { opacity: 0; animation-timing-function: ease-in; }
-    8%   { opacity: 0.6; animation-timing-function: linear; }
-    25%  { opacity: 0.6; animation-timing-function: ease-out; }
+    8%   { opacity: 1; animation-timing-function: linear; }
+    25%  { opacity: 1; animation-timing-function: ease-out; }
     33%  { opacity: 0; }
     100% { opacity: 0; }
 }
@@ -362,7 +363,7 @@ img {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: radial-gradient(ellipse at center, rgba(253,251,247,0) 30%, rgba(253,251,247,0.8) 80%, rgba(253,251,247,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(253,251,247,0) 40%, rgba(253,251,247,0.7) 75%, rgba(253,251,247,1) 100%);
     pointer-events: none;
 }
 
@@ -387,6 +388,23 @@ img {
 
 .hero-text-wrapper {
     max-width: 700px;
+}
+
+.hero-glass-blob {
+    background: rgba(253, 251, 247, 0.45);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 3.5rem;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob 15s ease-in-out infinite;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+@keyframes morphBlob {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 40% 60% 70% 30% / 40% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
 .glass-tag {
