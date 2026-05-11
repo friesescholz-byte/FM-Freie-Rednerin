@@ -258,11 +258,14 @@
                 <div class="pricing-card reveal delay-1">
                     <div class="pricing-header">
                         <h3>Freie Trauung mit Finnja Marie</h3>
-                        <div class="price">900,00 € <span class="price-suffix">zzgl. Fahrtkosten</span></div>
-                        <div class="travel-costs">Fahrtkosten: 0,50 € pro gefahrenem Kilometer</div>
+                        <div class="price" style="font-size: 1.8rem; margin: 1rem 0;">Individuell wie eure Liebe</div>
+                        <div class="travel-costs">Lasst uns gemeinsam euren perfekten Rahmen finden.</div>
                     </div>
                     <div class="pricing-body">
-                        <p class="includes-title">Enthalten sind:</p>
+                        <p class="includes-title" style="margin-bottom: 0.5rem; color: var(--text-main);">Jedes Paar ist anders – und so auch jede Trauung.</p>
+                        <p style="margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.6; color: var(--text-light);">Weil mir wichtig ist, dass eure Zeremonie exakt zu euren Wünschen und eurer Vorstellung passt, gibt es bei mir keine starren Pakete von der Stange. Nach einem ersten, völlig unverbindlichen Kennenlernen erstelle ich euch ein faires Angebot, das genau auf euch zugeschnitten ist. Das Wichtigste: Wir werden uns immer einig!</p>
+                        
+                        <p class="includes-title">Mein Standard-Umfang beinhaltet immer:</p>
                         <ul class="pricing-list">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> unverbindliches erstes Kennenlernen</li>
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> ausführliches Traugespräch</li>
@@ -271,8 +274,9 @@
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> gemeinsame Planung eurer Wunschzeremonie</li>
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Durchführung der freien Trauung am Hochzeitstag</li>
                         </ul>
-                        <div class="payment-terms">
-                            Nach verbindlicher Buchung wird eine Anzahlung in Höhe von 300,00 € fällig. Der Restbetrag ist zwei Wochen vor der Trauung zu überweisen.
+                        
+                        <div class="text-center" style="margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 2rem;">
+                             <a href="#kontakt" class="btn-primary btn-full">Kennenlernen vereinbaren</a>
                         </div>
                     </div>
                 </div>
@@ -445,15 +449,21 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
+        <div class="container footer-content" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
             <div class="footer-logo">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png" alt="Finnja Marie Logo">
+                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png" alt="Finnja Marie Logo" style="height: 50px; margin-bottom: 0;">
             </div>
-            <div class="footer-links">
+            
+            <a href="https://g.page/r/DeinGoogleLink" target="_blank" class="google-review-btn" style="display: inline-flex; align-items: center; gap: 10px; background: white; color: #333; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                <span>Google Bewertungen</span>
+            </a>
+
+            <div class="footer-links" style="margin-bottom: 0;">
                 <a href="#impressum">Impressum</a>
                 <a href="#datenschutz">Datenschutz</a>
             </div>
-            <div class="footer-copyright">
+            <div class="footer-copyright" style="padding-top: 1rem; width: 100%; max-width: 400px;">
                 &copy; <span id="year"></span> Finnja Marie. Alle Rechte vorbehalten.
             </div>
         </div>

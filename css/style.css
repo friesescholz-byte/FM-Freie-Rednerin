@@ -1328,6 +1328,11 @@ textarea:focus {
     text-align: center;
 }
 
+.google-review-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15) !important;
+}
+
 .footer-logo img {
     height: 60px;
     filter: brightness(0) invert(1);
