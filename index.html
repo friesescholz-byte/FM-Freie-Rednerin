@@ -18,7 +18,7 @@
     <header class="header" id="header">
         <div class="container navbar">
             <a href="#home" class="logo">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/1%20(1).png" alt="Finnja Marie Logo">
+                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png" alt="Finnja Marie Logo">
             </a>
             <button class="mobile-menu-btn" aria-label="Menü öffnen">
                 <span class="bar"></span>
@@ -40,17 +40,72 @@
     </header>
 
     <main>
-        <!-- 1. Hero-Bereich -->
-        <section id="home" class="hero">
-            <div class="hero-bg" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/051056a8-e1a0-402f-b239-9122f7ef3cc0.jpg');"></div>
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1 class="fade-in-up">Eure Liebe. Eure Geschichte.<br>Eure freie Trauung.</h1>
-                <p class="hero-subtitle fade-in-up delay-1">Ich gestalte mit euch eine persönliche, emotionale und lebendige Zeremonie, die genau zu euch passt – herzlich, ehrlich, feierlich und mit der richtigen Portion Humor.</p>
-                <div class="hero-cta fade-in-up delay-2">
-                    <a href="#kontakt" class="btn-primary btn-large">Unverbindliches Kennenlernen anfragen</a>
-                    <span class="trust-text">Euer Wunschtermin wird mit der Anfrage für ein erstes Kennenlernen gerne vorgemerkt.</span>
+        <!-- 1. Hero-Bereich (Premium Mesh) -->
+        <section id="home" class="premium-hero">
+            <svg class="hidden-svg">
+                <defs>
+                    <filter id="glass-effect" x="-50%" y="-50%" width="200%" height="200%">
+                        <feTurbulence baseFrequency="0.01" numOctaves="1" result="noise" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+                        <feGaussianBlur stdDeviation="1" result="blur" />
+                        <feComponentTransfer>
+                            <feFuncA type="linear" slope="0.8" />
+                        </feComponentTransfer>
+                    </filter>
+                    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#D4A373" />
+                        <stop offset="50%" stop-color="#C18B58" />
+                        <stop offset="100%" stop-color="#8DA399" />
+                    </linearGradient>
+                </defs>
+            </svg>
+
+            <!-- Animated Mesh Background -->
+            <div class="mesh-bg">
+                <div class="mesh-blob blob-1"></div>
+                <div class="mesh-blob blob-2"></div>
+                <div class="mesh-blob blob-3"></div>
+                <div class="mesh-blob blob-4"></div>
+                <div class="mesh-noise"></div>
+            </div>
+
+            <div class="container hero-content-premium">
+                <div class="hero-text-wrapper">
+                    <div class="glass-tag fade-in-up">
+                        <span class="glass-shine"></span>
+                        ✨ Individuelle freie Trauungen
+                    </div>
+
+                    <h1 class="hero-title fade-in-up delay-1">
+                        <span class="animated-gradient-text">Eure Liebe.</span><br>
+                        <span class="solid-text">Eure Geschichte.</span><br>
+                        <span class="italic-text">Eure freie Trauung.</span>
+                    </h1>
+
+                    <p class="hero-subtitle-premium fade-in-up delay-2">
+                        Ich gestalte mit euch eine persönliche, emotionale und lebendige Zeremonie, die genau zu euch passt – herzlich, ehrlich, feierlich und mit der richtigen Portion Humor.
+                    </p>
+
+                    <div class="hero-buttons fade-in-up delay-3">
+                        <a href="#kontakt" class="btn-premium">Kennenlernen anfragen</a>
+                        <a href="#ablauf" class="btn-premium-outline">Zum Ablauf</a>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Rotating Badge -->
+            <div class="rotating-badge-wrapper fade-in-up delay-4">
+                <div class="pulsing-center"></div>
+                <svg viewBox="0 0 100 100" class="rotating-text-svg">
+                    <defs>
+                        <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                    </defs>
+                    <text>
+                        <textPath href="#circlePath" startOffset="0%">
+                            Finnja Marie • Freie Rednerin • Individuell & Echt •
+                        </textPath>
+                    </text>
+                </svg>
             </div>
         </section>
 
@@ -412,7 +467,7 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="footer-logo">
-                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/1%20(1).png" alt="Finnja Marie Logo">
+                <img src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png" alt="Finnja Marie Logo">
             </div>
             <div class="footer-links">
                 <a href="#impressum">Impressum</a>
