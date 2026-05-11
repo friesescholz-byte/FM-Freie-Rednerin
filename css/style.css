@@ -689,7 +689,7 @@ img {
     max-width: 600px;
 }
 
-.split-image {
+.split-image, .contact-image-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: var(--border-radius);
