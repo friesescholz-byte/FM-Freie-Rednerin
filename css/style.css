@@ -1551,59 +1551,35 @@ textarea:focus {
     }
 }
 
+/* 
 /* ===================== */
 /* THEME: TRAUERREDEN    */
 /* ===================== */
 body.theme-trauer {
-    --bg-main: #1C1C1C;
-    --bg-alt: #242424;
-    --accent: #A39171; /* Muted gold */
-    --accent-dark: #8C7B5D;
-    --text-main: #EAEAEA;
-    --text-light: #A8A8A8;
+    --bg-main: #FAF8F5; /* warmes Creme */
+    --bg-alt: #EFECE6; /* helles Beige/Taupe */
+    --accent: #9CAEA0; /* zartes Salbeigrün */
+    --accent-dark: #7D8F81;
+    --text-main: #2C302E; /* dunkles Anthrazit */
+    --text-light: #595B5A;
+    --white: #FFFFFF;
 }
 
-body.theme-trauer .content-box,
-body.theme-trauer .card,
-body.theme-trauer .pricing-card,
-body.theme-trauer .faq-item,
-body.theme-trauer .contact-form-wrapper,
-body.theme-trauer .slogan-box {
-    background-color: #242424;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.05);
+body.theme-trauer .btn-premium {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+body.theme-trauer .btn-premium:hover {
+    background-color: var(--accent-dark);
 }
 
-body.theme-trauer .faq-question:hover {
-    background-color: #2a2a2a;
+body.theme-trauer .btn-primary {
+    background-color: var(--accent);
+    color: #fff;
 }
-
-body.theme-trauer input[type="text"],
-body.theme-trauer input[type="email"],
-body.theme-trauer input[type="tel"],
-body.theme-trauer input[type="date"],
-body.theme-trauer textarea,
-body.theme-trauer .radio-group-container {
-    background-color: #1a1a1a;
-    border-color: #333;
-    color: #EAEAEA;
-}
-
-body.theme-trauer input:focus,
-body.theme-trauer textarea:focus {
-    background-color: #222;
-}
-
-body.theme-trauer .header.scrolled {
-    background-color: rgba(28, 28, 28, 0.95);
-}
-
-body.theme-trauer .image-overlay-light {
-    background-color: rgba(28, 28, 28, 0.85);
-}
-
-body.theme-trauer h1, body.theme-trauer h2, body.theme-trauer h3, body.theme-trauer .solid-text {
-    color: #EAEAEA;
+body.theme-trauer .btn-primary:hover {
+    background-color: var(--accent-dark);
 }
 
 body.theme-trauer .split-image.reveal::after, body.theme-trauer .contact-image-wrapper.reveal::after {
