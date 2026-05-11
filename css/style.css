@@ -206,8 +206,12 @@ img {
 }
 
 .header:not(.scrolled) .nav-links a:not(.btn-primary) {
-    color: var(--text-main);
-    text-shadow: none;
+    color: var(--white);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.header:not(.scrolled) .logo img {
+    filter: invert(1) brightness(200%);
 }
 
 .nav-links a:hover:not(.btn-primary) {
@@ -267,8 +271,10 @@ img {
 .vogue-hero-overlay {
     position: absolute;
     inset: 0;
-    /* Soft gradient overlay from bottom up, fading into nothing */
-    background: linear-gradient(to top, var(--bg-main) 0%, rgba(251, 248, 241, 0.8) 30%, transparent 80%);
+    /* Soft gradient overlay from bottom up, fading into nothing, AND top down for header */
+    background: 
+        linear-gradient(to top, var(--bg-main) 0%, rgba(251, 248, 241, 0.8) 30%, transparent 80%),
+        linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 20%);
     z-index: 2;
 }
 
@@ -355,7 +361,9 @@ img {
         align-items: flex-end;
     }
     .vogue-hero-overlay {
-        background: linear-gradient(to top, var(--bg-main) 0%, rgba(251, 248, 241, 0.95) 50%, transparent 100%);
+        background: 
+            linear-gradient(to top, var(--bg-main) 0%, rgba(251, 248, 241, 0.95) 50%, transparent 100%),
+            linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 20%);
     }
     .vogue-title {
         font-size: 3rem;
