@@ -40,91 +40,62 @@
     </header>
 
     <main>
-        <!-- 1. Hero-Bereich (Premium Mesh) -->
-        <section id="home" class="premium-hero">
-            <svg class="hidden-svg">
-                <defs>
-                    <filter id="glass-effect" x="-50%" y="-50%" width="200%" height="200%">
-                        <feTurbulence baseFrequency="0.01" numOctaves="1" result="noise" />
-                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
-                        <feGaussianBlur stdDeviation="1" result="blur" />
-                        <feComponentTransfer>
-                            <feFuncA type="linear" slope="0.8" />
-                        </feComponentTransfer>
-                    </filter>
-                    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#D4A373" />
-                        <stop offset="50%" stop-color="#C18B58" />
-                        <stop offset="100%" stop-color="#8DA399" />
-                    </linearGradient>
-                </defs>
-            </svg>
-
-            <!-- Top Heading Area -->
-            <div class="hero-top-heading container text-center">
-                <div class="glass-tag fade-in-up" style="margin-bottom: 2rem;">
-                    <span class="glass-shine"></span>
-                    ✨ Individuelle freie Trauungen
-                </div>
-
-                <h1 class="hero-title-wide fade-in-up delay-1">
-                    <span class="animated-gradient-text">Eure Liebe.</span>
-                    <span class="solid-text">Eure Geschichte.</span>
-                    <span class="italic-text">Eure freie Trauung.</span>
-                </h1>
-            </div>
-
-            <!-- Animated Slideshow Background -->
-            <div class="hero-slideshow-container">
-                <div class="custom-shape-divider-top">
-                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                    </svg>
-                </div>
-
-                <!-- Slideshow -->
-                <div class="hero-slideshow">
-                    <div class="slide slide-1" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/051056a8-e1a0-402f-b239-9122f7ef3cc0.jpg');"></div>
-                    <div class="slide slide-2" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/652abf4a-15ad-4236-9e71-4edb504ff8df.jpg');"></div>
-                    <div class="slide slide-3" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/68e4c63d-aaf4-48a6-8454-2a6d2a35c7ad.jpg');"></div>
-                    <div class="slide slide-4" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/976369f6-13e7-4745-8da9-90cbe7711d9a.jpg');"></div>
-                </div>
-
-                <div class="custom-shape-divider-bottom">
-                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Bottom Text Area -->
-            <div class="hero-bottom-text">
-                <div class="container text-center">
-
-                    <p class="hero-subtitle-centered fade-in-up delay-2">
+        <!-- 1. Hero-Bereich (Premium Editorial Boutique) -->
+        <section id="home" class="premium-hero-editorial">
+            <div class="container editorial-container">
+                
+                <!-- Left: Text Content -->
+                <div class="editorial-content">
+                    <div class="glass-tag fade-in-up" style="margin-bottom: 2rem;">
+                        <span class="glass-shine"></span>
+                        ✨ Individuelle freie Trauungen
+                    </div>
+                    
+                    <h1 class="hero-title-editorial fade-in-up delay-1">
+                        <span class="animated-gradient-text">Eure Liebe.</span>
+                        <span class="solid-text">Eure Geschichte.</span>
+                        <span class="italic-text">Eure freie Trauung.</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle-editorial fade-in-up delay-2">
                         Ich gestalte mit euch eine persönliche, emotionale und lebendige Zeremonie, die genau zu euch passt – herzlich, ehrlich, feierlich und mit der richtigen Portion Humor.
                     </p>
-
-                    <div class="hero-buttons-centered fade-in-up delay-3">
+                    
+                    <div class="hero-buttons-editorial fade-in-up delay-3">
                         <a href="#kontakt" class="btn-premium">Kennenlernen anfragen</a>
                         <a href="#ablauf" class="btn-premium-outline">Zum Ablauf</a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Rotating Badge -->
-            <div class="rotating-badge-wrapper fade-in-up delay-4">
-                <div class="pulsing-center"></div>
-                <svg viewBox="0 0 100 100" class="rotating-text-svg">
-                    <defs>
-                        <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
-                    </defs>
-                    <text>
-                        <textPath href="#circlePath" startOffset="0%">
-                            Finnja Marie • Freie Rednerin • Individuell & Echt •
-                        </textPath>
-                    </text>
-                </svg>
+                <!-- Right: Shaped Slider -->
+                <div class="editorial-slider-wrapper fade-in-up delay-2">
+                    <!-- Decorative outline -->
+                    <div class="slider-outline"></div>
+                    
+                    <!-- Actual slider -->
+                    <div class="editorial-slider">
+                        <div class="slide slide-1" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/051056a8-e1a0-402f-b239-9122f7ef3cc0.jpg');"></div>
+                        <div class="slide slide-2" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/652abf4a-15ad-4236-9e71-4edb504ff8df.jpg');"></div>
+                        <div class="slide slide-3" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/68e4c63d-aaf4-48a6-8454-2a6d2a35c7ad.jpg');"></div>
+                        <div class="slide slide-4" style="background-image: url('https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/976369f6-13e7-4745-8da9-90cbe7711d9a.jpg');"></div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="floating-badge-editorial fade-in-up delay-4">
+                        <div class="pulsing-center"></div>
+                        <svg viewBox="0 0 100 100" class="rotating-text-svg">
+                            <defs>
+                                <path id="circlePathEditorial" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                            </defs>
+                            <text>
+                                <textPath href="#circlePathEditorial" startOffset="0%">
+                                    Finnja Marie • Freie Rednerin • Individuell & Echt •
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+
             </div>
         </section>
 
