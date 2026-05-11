@@ -291,42 +291,67 @@ img {
     align-items: center;
 }
 
-/* Shaped Slider Right Side */
-.editorial-slider-wrapper {
+/* Image Composition Right Side */
+.editorial-composition-wrapper {
     position: relative;
     width: 100%;
     height: 75vh;
     max-height: 750px;
-    min-height: 500px;
+    min-height: 550px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.editorial-slider {
+.editorial-main-image {
     position: relative;
-    width: 90%;
-    height: 100%;
-    border-radius: 200px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    width: 80%;
+    height: 90%;
+    border-radius: 250px; /* Big Pill */
     z-index: 2;
 }
 
-.slider-outline {
+.editorial-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.image-outline {
     position: absolute;
     top: -15px;
     bottom: -15px;
-    left: 10px;
-    right: 10px;
+    left: 15px;
+    right: -15px;
     border: 1px solid rgba(212, 163, 115, 0.4);
-    border-radius: 215px;
-    z-index: 1;
+    border-radius: 265px;
+    z-index: -1;
+}
+
+.editorial-secondary-slider {
+    position: absolute;
+    bottom: 50px;
+    left: -20px;
+    width: 45%;
+    height: 50%;
+    z-index: 3;
+    border-radius: 150px; /* Small Pill */
+    overflow: hidden;
+    box-shadow: -10px 20px 40px rgba(0,0,0,0.15);
+    border: 8px solid var(--bg-main);
+}
+
+.editorial-secondary-slider .editorial-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .floating-badge-editorial {
     position: absolute;
-    bottom: 50px;
+    top: 50px;
     left: -40px;
     z-index: 10;
     width: 140px;
@@ -354,18 +379,28 @@ img {
     .hero-buttons-editorial {
         justify-content: center;
     }
-    .editorial-slider-wrapper {
+    .editorial-composition-wrapper {
         height: 60vh;
+        justify-content: center;
+        margin-bottom: 2rem;
     }
-    .editorial-slider {
-        border-radius: 100px;
+    .editorial-main-image {
+        width: 90%;
+        height: 100%;
+        border-radius: 150px;
     }
-    .slider-outline {
-        border-radius: 115px;
+    .image-outline {
+        border-radius: 165px;
+    }
+    .editorial-secondary-slider {
+        width: 50%;
+        height: 40%;
+        left: -10px;
+        bottom: 20px;
     }
     .floating-badge-editorial {
-        left: 20px;
-        bottom: 20px;
+        left: -10px;
+        top: -20px;
         transform: scale(0.8);
     }
 }
