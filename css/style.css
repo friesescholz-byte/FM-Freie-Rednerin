@@ -380,6 +380,7 @@ img {
 .vogue-slider-wrapper {
     position: relative;
     width: 100%;
+    max-width: 1200px; /* Constrain width to keep pill shape */
     height: 60vh;
     max-height: 650px;
     min-height: 450px;
@@ -460,7 +461,6 @@ img {
     inset: 0;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     opacity: 0;
     animation: fadeSlide 48s infinite;
 }
