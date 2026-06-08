@@ -57,8 +57,8 @@
             transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .pane-wedding .split-overlay { background: linear-gradient(to bottom, rgba(253, 251, 247, 0.5), rgba(253, 251, 247, 0.8)); }
-        .pane-funeral .split-overlay { background: linear-gradient(to bottom, rgba(34, 34, 34, 0.4), rgba(15, 15, 15, 0.85)); }
+        .pane-wedding .split-overlay { background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(35, 28, 22, 0.65) 60%, rgba(20, 15, 10, 0.85) 100%); }
+        .pane-funeral .split-overlay { background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(24, 28, 26, 0.65) 60%, rgba(15, 18, 17, 0.85) 100%); }
 
         .content {
             position: relative;
@@ -80,20 +80,20 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .pane-wedding h2 { color: #4A3B32; }
-        .pane-funeral h2 { color: #FFFFFF; }
+        .pane-wedding h2 { color: #FFFDF9; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .pane-funeral h2 { color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 
         p {
             font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 400;
-            opacity: 0.8;
+            font-weight: 500;
+            opacity: 0.9;
             transition: opacity 0.8s ease;
         }
 
-        .pane-wedding p { color: #7A6960; }
-        .pane-funeral p { color: #CCCCCC; }
+        .pane-wedding p { color: #D4A373; text-shadow: 0 1px 5px rgba(0,0,0,0.2); }
+        .pane-funeral p { color: #9CAEA0; text-shadow: 0 1px 5px rgba(0,0,0,0.2); }
 
         .explore-btn {
             display: inline-block;
@@ -109,13 +109,17 @@
         }
 
         .pane-wedding .explore-btn {
-            border: 1px solid #4A3B32;
-            color: #4A3B32;
+            border: 1px solid #D4A373;
+            color: #D4A373;
+            background-color: rgba(0, 0, 0, 0.25);
+            font-weight: 600;
         }
 
         .pane-funeral .explore-btn {
-            border: 1px solid rgba(255,255,255,0.5);
-            color: #FFFFFF;
+            border: 1px solid #9CAEA0;
+            color: #9CAEA0;
+            background-color: rgba(0, 0, 0, 0.25);
+            font-weight: 600;
         }
 
         /* --- Hover Effects --- */
@@ -148,8 +152,8 @@
             filter: grayscale(0%) blur(0px);
         }
 
-        .pane-wedding:hover .split-overlay { background: linear-gradient(to bottom, rgba(253, 251, 247, 0.2), rgba(253, 251, 247, 0.6)); }
-        .pane-funeral:hover .split-overlay { background: linear-gradient(to bottom, rgba(34, 34, 34, 0.1), rgba(15, 15, 15, 0.7)); }
+        .pane-wedding:hover .split-overlay { background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(35, 28, 22, 0.5) 60%, rgba(20, 15, 10, 0.7) 100%); }
+        .pane-funeral:hover .split-overlay { background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(24, 28, 26, 0.5) 60%, rgba(15, 18, 17, 0.7) 100%); }
 
         .split-pane:hover .content {
             transform: translateY(-10px);
@@ -162,13 +166,17 @@
         }
         
         .pane-wedding:hover .explore-btn {
-            background-color: #4A3B32;
+            background-color: #D4A373;
             color: #fff;
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
+            border-color: #D4A373;
         }
         
         .pane-funeral:hover .explore-btn {
-            background-color: #fff;
-            color: #111;
+            background-color: #9CAEA0;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(156, 174, 160, 0.3);
+            border-color: #9CAEA0;
         }
 
         /* Logo overlay */

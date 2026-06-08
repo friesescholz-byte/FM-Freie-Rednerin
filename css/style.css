@@ -238,14 +238,14 @@ img {
     z-index: 1000;
     transition: var(--transition-smooth);
     background-color: transparent;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
 }
 
 .header.scrolled {
     background-color: rgba(253, 251, 247, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
 }
 
 .navbar {
@@ -255,26 +255,26 @@ img {
 }
 
 .logo img {
-    height: 90px;
+    height: 70px;
     transition: var(--transition-smooth);
 }
 
 .header.scrolled .logo img {
-    height: 70px;
+    height: 52px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 2rem;
+    gap: 1.2rem;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
@@ -321,11 +321,49 @@ img {
     color: var(--white);
 }
 
+/* Compact header button override */
+.nav-links .btn-primary {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(212, 163, 115, 0.15);
+    animation: btn-pulse-nav 4s infinite ease-in-out;
+}
+
+.nav-links .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(212, 163, 115, 0.35);
+}
+
+body.theme-trauer .nav-links .btn-primary {
+    box-shadow: 0 4px 12px rgba(156, 174, 160, 0.15);
+    animation: btn-pulse-nav-trauer 4s infinite ease-in-out;
+}
+
+body.theme-trauer .nav-links .btn-primary:hover {
+    box-shadow: 0 8px 18px rgba(156, 174, 160, 0.35);
+}
+
+@keyframes btn-pulse-nav {
+    0% { box-shadow: 0 4px 12px rgba(212, 163, 115, 0.15); }
+    50% { box-shadow: 0 4px 22px rgba(212, 163, 115, 0.35); }
+    100% { box-shadow: 0 4px 12px rgba(212, 163, 115, 0.15); }
+}
+
+@keyframes btn-pulse-nav-trauer {
+    0% { box-shadow: 0 4px 12px rgba(156, 174, 160, 0.15); }
+    50% { box-shadow: 0 4px 22px rgba(156, 174, 160, 0.35); }
+    100% { box-shadow: 0 4px 12px rgba(156, 174, 160, 0.15); }
+}
+
 /* Navigation Phone Link */
 .nav-phone-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.9rem;
 }
 
 .nav-phone-link svg {
@@ -349,7 +387,7 @@ img {
     stroke: var(--accent);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-phone-link svg {
         stroke: var(--accent) !important;
     }
@@ -1666,7 +1704,7 @@ textarea:focus {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     :root {
         --section-padding: 4rem 0;
     }
@@ -1730,6 +1768,18 @@ textarea:focus {
         flex-direction: column;
         align-items: flex-start;
         gap: 1.5rem;
+    }
+    
+    .nav-links .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        box-shadow: 0 6px 15px rgba(212, 163, 115, 0.15);
+    }
+    
+    body.theme-trauer .nav-links .btn-primary {
+        box-shadow: 0 6px 15px rgba(156, 174, 160, 0.15);
     }
     
     .header:not(.scrolled) .nav-links a:not(.btn-primary) {
