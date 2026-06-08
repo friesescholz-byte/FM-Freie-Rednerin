@@ -1861,6 +1861,32 @@ body.theme-trauer {
     --white: #FFFFFF;
 }
 
+/* Theme Trauer: Hero Contrast Enhancements */
+body.theme-trauer .vogue-hero-overlay {
+    background: 
+        linear-gradient(to top, var(--bg-main) 0%, rgba(250, 248, 245, 0.4) 40%, rgba(0, 0, 0, 0.25) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+}
+
+body.theme-trauer .vogue-title .solid-text {
+    color: var(--white);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+}
+
+body.theme-trauer .vogue-title .animated-gradient-text {
+    background: linear-gradient(135deg, #FFFFFF 0%, #C4D1C7 35%, var(--accent) 70%, #FFFFFF 100%);
+    background-size: 300% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+}
+
+body.theme-trauer .vogue-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+}
+
 body.theme-trauer .btn-premium {
     background-color: var(--accent);
     color: #fff;
