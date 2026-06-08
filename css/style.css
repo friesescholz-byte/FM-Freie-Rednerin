@@ -1864,27 +1864,52 @@ body.theme-trauer {
 /* Theme Trauer: Hero Contrast Enhancements */
 body.theme-trauer .vogue-hero-overlay {
     background: 
-        linear-gradient(to top, var(--bg-main) 0%, rgba(250, 248, 245, 0.4) 40%, rgba(0, 0, 0, 0.25) 100%),
-        linear-gradient(to right, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+        linear-gradient(to top, var(--bg-main) 0%, rgba(250, 248, 245, 0.3) 30%, transparent 80%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.45) 50%, transparent 95%);
 }
 
 body.theme-trauer .vogue-title .solid-text {
     color: var(--white);
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55), 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 body.theme-trauer .vogue-title .animated-gradient-text {
-    background: linear-gradient(135deg, #FFFFFF 0%, #C4D1C7 35%, var(--accent) 70%, #FFFFFF 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #D8E5DB 35%, var(--accent) 70%, #FFFFFF 100%);
     background-size: 300% auto;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.45);
 }
 
 body.theme-trauer .vogue-subtitle {
     color: rgba(255, 255, 255, 0.95);
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Elegant Hero Note for Trauerreden */
+body.theme-trauer .hero-note {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 520px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+    opacity: 0;
+}
+
+body.theme-trauer .hero-note svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent);
+    flex-shrink: 0;
 }
 
 body.theme-trauer .btn-premium {
