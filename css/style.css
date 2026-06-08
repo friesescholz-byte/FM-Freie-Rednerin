@@ -1141,6 +1141,110 @@ img {
     color: var(--text-main);
 }
 
+/* Unified Pricing Card */
+.pricing-unified-card {
+    display: flex;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+    overflow: hidden;
+    margin: 4rem auto 0;
+    max-width: 1100px;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.pricing-unified-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-unified-left {
+    flex: 1.2;
+    padding: 4rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pricing-unified-left h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.pricing-unified-left .subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.pricing-unified-left p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.pricing-unified-left p:last-of-type {
+    margin-bottom: 0;
+}
+
+.pricing-unified-right {
+    flex: 1;
+    padding: 4rem;
+    background-color: var(--bg-alt);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+body.theme-trauer .pricing-unified-right {
+    background-color: rgba(156, 174, 160, 0.1);
+}
+
+.pricing-unified-right .includes-header h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.pricing-unified-right .pricing-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.pricing-unified-right .pricing-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.pricing-unified-right .pricing-list li svg {
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    margin-right: 12px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+    .pricing-unified-card {
+        flex-direction: column;
+    }
+    .pricing-unified-left, .pricing-unified-right {
+        padding: 3rem 2rem;
+    }
+}
+
 /* FAQ */
 .faq-container {
     max-width: 800px;
