@@ -1715,6 +1715,11 @@ textarea:focus {
         flex-direction: column;
     }
     
+    .section-einstieg .split-layout,
+    .section-about .split-layout {
+        flex-direction: column-reverse;
+    }
+    
     .split-text, .split-image {
         width: 100%;
         max-width: 100%;
