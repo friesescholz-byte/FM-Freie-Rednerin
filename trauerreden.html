@@ -13,6 +13,9 @@
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/FM-Freie-Rednerin/Logo-fm-fr-transparent.png">
+    
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="theme-trauer">
     <!-- Navbar -->
@@ -484,6 +487,12 @@
                             <label for="message">Wie darf ich Sie unterstützen? *</label>
                             <textarea id="message" name="message" rows="4" required placeholder="Ihre Nachricht..."></textarea>
                         </div>
+                        
+                        <!-- Turnstile Spam-Schutz -->
+                        <div class="form-group" style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAADipfv7pMXYXPmLW" data-theme="light"></div>
+                        </div>
+
                         <button type="submit" class="btn-primary btn-full">Kontakt aufnehmen</button>
                         <p class="form-hint">Ich melde mich so schnell wie möglich bei Ihnen zurück.<br><br><b>Ich bin gerne für Sie da.</b><br>Finnja Marie – Freie Rednerin für Trauerfeiern</p>
                     </form>
@@ -508,12 +517,74 @@
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
             </div>
-            <div class="footer-copyright" style="padding-top: 1rem; width: 100%; max-width: 400px;">
-                &copy; <span id="year"></span> Finnja Marie. Alle Rechte vorbehalten.
+            <div class="footer-copyright" style="padding-top: 1rem; width: 100%;">
+                <span>&copy; <span id="year"></span> Finnja Marie. Alle Rechte vorbehalten.</span>
+                <span><a href="https://scholz-friese-webdesign.de/" target="_blank">by Scholz & Friese Webdesign</a></span>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Check for Turnstile token
+            const turnstileResponse = form.querySelector('[name="cf-turnstile-response"]').value;
+            if (!turnstileResponse) {
+                alert('Bitte bestätigen Sie den Spam-Schutz.');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Wird gesendet...';
+            
+            const formData = {
+                source: 'fm-freie-rednerin',
+                formType: 'trauerfeier',
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: document.getElementById('date').value,
+                location: document.getElementById('location').value,
+                deceased_name: document.getElementById('deceased_name').value,
+                message: document.getElementById('message').value,
+                turnstileToken: turnstileResponse
+            };
+            
+            try {
+                const response = await fetch('https://friesescholzwebdesign.pages.dev/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    alert('Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich schnellstmöglich bei Ihnen.');
+                    form.reset();
+                    // Reset Turnstile widget
+                    if (window.turnstile) {
+                        window.turnstile.reset();
+                    }
+                } else {
+                    alert('Fehler beim Senden: ' + (result.message || 'Bitte versuchen Sie es später noch einmal.'));
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('Es ist ein Netzwerkfehler aufgetreten. Bitte versuchen Sie es später noch einmal.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    </script>
 </body>
 </html>
