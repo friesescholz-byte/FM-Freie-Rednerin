@@ -2056,3 +2056,63 @@ body.theme-trauer .timeline-dot {
 body.theme-trauer .section-tag::after {
     background: linear-gradient(90deg, transparent, rgba(156, 174, 160, 0.4), transparent);
 }
+
+
+/* ==========================================================================
+   Multi-Step Flow Form Styles (Scholz & Friese)
+   ========================================================================== */
+.form-step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+.form-progress-bar {
+    height: 4px;
+    background-color: var(--bg-alt);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+.form-progress-fill {
+    height: 100%;
+    background-color: var(--accent);
+    width: 33%;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.form-step {
+    display: none;
+    animation: fadeInStep 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+.form-step.active {
+    display: block;
+}
+@keyframes fadeInStep {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.btn-back {
+    border: 1px solid var(--accent);
+    color: var(--text-main);
+    background: transparent;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.btn-back:hover {
+    background: var(--bg-alt);
+}
+.btn-next {
+    margin-left: auto;
+}

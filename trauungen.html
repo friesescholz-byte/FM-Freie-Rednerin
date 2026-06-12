@@ -56,7 +56,7 @@
                 <div class="vogue-text-box fade-in-up delay-1">
                     <div class="glass-tag" style="margin-bottom: 1.5rem;">
                         <span class="glass-shine"></span>
-                        ✨ Individuelle freie Trauungen
+                        ✨ Freie Rednerin in Niedersachsen, Bremen & OWL
                     </div>
                     
                     <h1 class="vogue-title">
@@ -450,62 +450,94 @@
                 
                 <div class="contact-form-wrapper reveal delay-1">
                     <form class="contact-form" action="#" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name(n) *</label>
-                            <input type="text" id="name" name="name" required placeholder="Eure Namen">
+                        <!-- Progress Indicator -->
+                        <div class="form-step-indicator">
+                            <span class="step-text">Schritt 1 von 3: Eure Trauung</span>
+                            <span class="step-percent">33%</span>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">E-Mail-Adresse *</label>
-                                <input type="email" id="email" name="email" required placeholder="name@beispiel.de">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefonnummer (optional)</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Für eventuelle Rückfragen">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date">Hochzeitsdatum *</label>
-                                <input type="date" id="date" name="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="location">Ort der Trauung *</label>
-                                <input type="text" id="location" name="location" required placeholder="Wo feiert ihr?">
-                            </div>
-                        </div>
-                        <div class="form-group radio-group-container">
-                            <label>Ist euer Termin schon fest gebucht?</label>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="termin_fest" value="ja" checked>
-                                    <span class="radio-custom"></span> Ja, der Termin steht.
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="termin_fest" value="nein">
-                                    <span class="radio-custom"></span> Nein, wir sind noch flexibel.
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="wishes">Was wünscht ihr euch für eure freie Trauung?</label>
-                            <textarea id="wishes" name="wishes" rows="3" placeholder="Gibt es schon erste Ideen oder Vorstellungen?"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Nachricht *</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Erzählt mir gerne schon ein bisschen was über euch..."></textarea>
-                        </div>
-                        
-                        <!-- Turnstile Spam-Schutz -->
-                        <div class="form-group" style="margin-bottom: 1.5rem; display: flex; justify-content: center;">
-                            <div class="cf-turnstile" data-sitekey="0x4AAAAAADipfv7pMXYXPmLW" data-theme="light"></div>
+                        <div class="form-progress-bar">
+                            <div class="form-progress-fill" id="progressFill" style="width: 33%;"></div>
                         </div>
 
-                        <!-- Form Error Container -->
-                        <div class="form-error-message" style="display: none; color: #b91c1c; background: #fee2e2; border: 1px solid #fca5a5; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center; font-size: 0.95rem;"></div>
+                        <!-- Step 1 -->
+                        <div class="form-step active" data-step="1">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Hochzeitsdatum *</label>
+                                    <input type="date" id="date" name="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Ort der Trauung *</label>
+                                    <input type="text" id="location" name="location" required placeholder="Wo feiert ihr?">
+                                </div>
+                            </div>
+                            <div class="form-group radio-group-container">
+                                <label>Ist euer Termin schon fest gebucht?</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="termin_fest" value="ja" checked>
+                                        <span class="radio-custom"></span> Ja, der Termin steht.
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="termin_fest" value="nein">
+                                        <span class="radio-custom"></span> Nein, wir sind noch flexibel.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-navigation">
+                                <div></div>
+                                <button type="button" class="btn-primary btn-next" onclick="nextStep(1)">Weiter &rarr;</button>
+                            </div>
+                        </div>
 
-                        <button type="submit" class="btn-primary btn-full">Kennenlernen anfragen</button>
-                        <p class="form-hint">Ich melde mich schnellstmöglich bei euch zurück und freue mich darauf, mehr über euch und eure Pläne zu erfahren.<br><br><b>Ich freue mich auf euch und eure Geschichte.</b><br>Finnja Marie – Freie Rednerin</p>
+                        <!-- Step 2 -->
+                        <div class="form-step" data-step="2">
+                            <div class="form-group">
+                                <label for="wishes">Was wünscht ihr euch für eure freie Trauung?</label>
+                                <textarea id="wishes" name="wishes" rows="3" placeholder="Gibt es schon erste Ideen oder Vorstellungen?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Nachricht *</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Erzählt mir gerne schon ein bisschen was über euch..."></textarea>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn-back" onclick="prevStep(2)">&larr; Zurück</button>
+                                <button type="button" class="btn-primary btn-next" onclick="nextStep(2)">Weiter &rarr;</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="form-step" data-step="3">
+                            <div class="form-group">
+                                <label for="name">Eure Namen *</label>
+                                <input type="text" id="name" name="name" required placeholder="Vorname(n) & Nachname">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">E-Mail-Adresse *</label>
+                                    <input type="email" id="email" name="email" required placeholder="name@beispiel.de">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefonnummer (optional)</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Für eventuelle Rückfragen">
+                                </div>
+                            </div>
+                            
+                            <!-- Turnstile Spam-Schutz -->
+                            <div class="form-group" style="margin-top: 1.5rem; margin-bottom: 1.5rem; display: flex; justify-content: center;">
+                                <div class="cf-turnstile" data-sitekey="0x4AAAAAADipfv7pMXYXPmLW" data-theme="light"></div>
+                            </div>
+
+                            <!-- Form Error Container -->
+                            <div class="form-error-message" style="display: none; color: #b91c1c; background: #fee2e2; border: 1px solid #fca5a5; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center; font-size: 0.95rem;"></div>
+
+                            <div class="form-navigation">
+                                <button type="button" class="btn-back" onclick="prevStep(3)">&larr; Zurück</button>
+                                <button type="submit" class="btn-primary">Absenden</button>
+                            </div>
+                        </div>
+
+                        <p class="form-hint" style="margin-top: 2rem;">Ich melde mich schnellstmöglich bei euch zurück und freue mich darauf, mehr über euch und eure Pläne zu erfahren.<br><br><b>Ich freue mich auf euch und eure Geschichte.</b><br>Finnja Marie Schumacher - Freie Rednerin</p>
                     </form>
 
                     <!-- Beautiful Success Message -->
@@ -546,6 +578,53 @@
 
     <script src="js/main.js"></script>
     <script>
+        // Flow Form Controller
+        let currentStep = 1;
+        const totalSteps = 3;
+        const stepTitles = {
+            1: "Schritt 1 von 3: Eure Trauung",
+            2: "Schritt 2 von 3: Eure Pläne",
+            3: "Schritt 3 von 3: Eure Kontaktdaten"
+        };
+
+        function updateProgress() {
+            const fill = document.getElementById('progressFill');
+            const text = document.querySelector('.step-text');
+            const percent = document.querySelector('.step-percent');
+            
+            const w = (currentStep / totalSteps) * 100;
+            fill.style.width = w + '%';
+            text.textContent = stepTitles[currentStep];
+            percent.textContent = Math.round(w) + '%';
+        }
+
+        window.nextStep = function(step) {
+            const container = document.querySelector(`.form-step[data-step="${step}"]`);
+            const inputs = container.querySelectorAll('input[required], textarea[required]');
+            let valid = true;
+            
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    valid = false;
+                }
+            });
+            
+            if (!valid) return;
+            
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+            currentStep++;
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+            updateProgress();
+        };
+
+        window.prevStep = function(step) {
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+            currentStep--;
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+            updateProgress();
+        };
+
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -609,6 +688,8 @@
                         successMessage.style.display = 'block';
                     }
                     form.reset();
+currentStep = 1;
+updateProgress();
                     if (window.turnstile) {
                         window.turnstile.reset();
                     }
