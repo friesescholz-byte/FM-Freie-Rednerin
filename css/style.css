@@ -537,8 +537,23 @@ body.theme-trauer .nav-links .btn-primary:hover {
         align-items: flex-end;
     }
     .vogue-hero-background {
+        position: fixed !important;
+        height: 100vh !important;
+        width: 100vw !important;
+        top: 0 !important;
+        left: 0 !important;
         background-attachment: scroll !important;
         background-position: center 20% !important;
+        z-index: 1 !important;
+        will-change: transform;
+    }
+    .vogue-hero ~ * {
+        position: relative;
+        z-index: 5;
+        background-color: var(--bg-main);
+    }
+    .image-bg {
+        background-attachment: scroll !important;
     }
     .vogue-hero-overlay {
         background: 
